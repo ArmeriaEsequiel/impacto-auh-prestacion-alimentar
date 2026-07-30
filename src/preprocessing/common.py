@@ -9,3 +9,8 @@ def format_df(sheet_name, general_df, top, bottom, header_position):
 	df = df.iloc[top:bottom].reset_index(drop=True)
 	df_final = df.loc[:, df.columns.notna()]
 	return(df_final)
+
+
+def save_csv(df, name, path):
+    print(name)
+    df.to_csv(path / f"{name}.csv", index=False)
