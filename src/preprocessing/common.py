@@ -14,3 +14,15 @@ def format_df(sheet_name, general_df, top, bottom, header_position):
 def save_csv(df, name, path):
     print(name)
     df.to_csv(path / f"{name}.csv", index=False)
+
+
+
+def check_time(df, column):
+	return(df[column].min(),df[column].max())
+	
+def check_time_difference(df, column):
+	# Contamos la cantidad de dias que h
+	diferencias = df[column].diff()
+
+	print("Distancias detectadas entre registros (en días):")
+	print(diferencias.value_counts())
